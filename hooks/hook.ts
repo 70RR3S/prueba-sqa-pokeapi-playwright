@@ -7,9 +7,10 @@ let contextoNavegador: BrowserContext;
 let contextoApi: APIRequestContext;
 export let baseUrl: string = 'https://pokeapi.co/api/v2/';
 
+//api es actualizada más adelante según la solicitud
 export const api = { 
     //@ts-ignore
-    api: undefined as APIRequestContext
+    contextoSolicitud: undefined as APIRequestContext 
 }
 
 BeforeAll( async () => {
@@ -22,7 +23,7 @@ Before( async () => {
     })
 
     contextoNavegador = await navegador.newContext({});
-    api.api = contextoApi;
+    api.contextoSolicitud = contextoApi;
 });
 
 AfterAll(async () => {

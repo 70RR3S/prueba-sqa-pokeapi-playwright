@@ -14,12 +14,12 @@ export default class ConsultarPokemon {
 
     async enviarSolicitud(nombre: string){
         try {
-            const solicitudConsultarPokemon = api.api;
+            const solicitudConsultarPokemon = api.contextoSolicitud;
             const respuesta = await solicitudConsultarPokemon.get(`${baseUrl}/pokemon/${nombre}`);
             this.codigoRespuesta = respuesta.status();
             this.jsonRespuesta = await respuesta.json()      
         } catch (error) {
-            console.error('Error consultando el nombre del pokemon', error)
+            console.error('Error consultando la información general del pokemon', error)
             throw error;
         }
     }
@@ -30,7 +30,7 @@ export default class ConsultarPokemon {
     */
     async consultarEspecie(url: string){
         try {
-            const solicitudConsultarEspeciePokemon = api.api;
+            const solicitudConsultarEspeciePokemon = api.contextoSolicitud;
             const respuesta = await solicitudConsultarEspeciePokemon.get(url);
             this.codigoRespuesta = respuesta.status();
             this.jsonRespuesta = await respuesta.json()      
@@ -42,7 +42,7 @@ export default class ConsultarPokemon {
 
     async consultarEvoluciones(url: string){
         try {
-            const solicitudConsultarEvoluciones = api.api;
+            const solicitudConsultarEvoluciones = api.contextoSolicitud;
             const respuesta = await solicitudConsultarEvoluciones.get(url);
             this.codigoRespuesta = respuesta.status();
             this.jsonRespuesta = await respuesta.json()      
