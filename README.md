@@ -1,0 +1,1 @@
+# prueba-sqa-pokeapi-playwright
